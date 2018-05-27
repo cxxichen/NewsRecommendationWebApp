@@ -4,15 +4,12 @@ import LoginPage from './Login/LoginPage';
 import SignUpPage from './SignUp/SignUpPage';
 import Auth from './Auth/Auth';
 
-
 const routes = {
   // base component (wrapper for the whole application).
   component: Base,
   childRoutes: [
-
     {
-      path: '/',
-      getComponent: (location, callback) => {
+      path: '/', getComponent: (location, callback) => {
         if (Auth.isUserAuthenticated()) {
           callback(null, App);
         } else {
@@ -20,23 +17,12 @@ const routes = {
         }
       }
     },
-
+    { path: '/login', component: LoginPage },
+    { path: '/signup', component: SignUpPage },
     {
-      path: '/login',
-      component: LoginPage
-    },
-
-    {
-      path: '/signup',
-      component: SignUpPage
-    },
-
-    {
-      path: '/logout',
-      onEnter: (nextState, replace) => {
+      path: '/logout', onEnter: (nextState, replace) => {
         Auth.deauthenticateUser();
-
-        // change the current URL to /
+        // redirect to login page
         replace('/');
       }
     }

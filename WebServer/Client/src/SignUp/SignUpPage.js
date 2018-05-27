@@ -29,10 +29,6 @@ class SignUpPage extends React.Component {
     const password = this.state.user.password;
     const confirm_password = this.state.user.confirm_password;
 
-    console.log('email:', email);
-    console.log('password:', password);
-    console.log('confirm_assword:', confirm_password);
-
     if (password !== confirm_password) {
       return;
     }
@@ -57,13 +53,11 @@ class SignUpPage extends React.Component {
 
         // change the current URL to /login
         this.context.router.replace('/login');
-
       } else {
         response.json().then(function(json) {
           console.log(json);
           const errors = json.errors ? json.errors : {};
           errors.summary = json.message;
-          console.log(this.state.errors);
           this.setState({errors});
         }.bind(this));
       }
@@ -75,9 +69,7 @@ class SignUpPage extends React.Component {
     const user = this.state.user;
     user[field] = event.target.value;
 
-    this.setState({
-      user
-    });
+    this.setState({user});
 
     if (this.state.user.password !== this.state.user.confirm_password) {
       const errors = this.state.errors;

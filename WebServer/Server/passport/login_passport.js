@@ -19,7 +19,7 @@ module.exports = new PassportLocalStrategy({
     if (err) { return done(err); }
 
     if (!user) {
-      const error = new Error('Incorrect email or password');
+      const error = new Error('User does not exist');
       error.name = 'IncorrectCredentialsError';
 
       return done(error);

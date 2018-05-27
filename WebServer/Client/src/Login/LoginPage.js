@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Auth from '../Auth/Auth';
 import LoginForm from './LoginForm';
 
-
 class LoginPage extends React.Component {
 
   constructor(props, context) {
@@ -29,9 +28,6 @@ class LoginPage extends React.Component {
     const email = this.state.user.email;
     const password = this.state.user.password;
 
-    console.log('email:', email);
-    console.log('password:', password);
-
     // Post login data
     fetch('http://localhost:3000/auth/login', {
       method: 'POST',
@@ -51,11 +47,10 @@ class LoginPage extends React.Component {
         });
 
         response.json().then(function(json) {
-          console.log(json);
+          console.log(json.message);
           Auth.authenticateUser(json.token, email);
           this.context.router.replace('/');
         }.bind(this));
-
       } else {
         console.log('Login failed');
         response.json().then(function(json) {
@@ -72,9 +67,7 @@ class LoginPage extends React.Component {
     const user = this.state.user;
     user[field] = event.target.value;
 
-    this.setState({
-      user
-    });
+    this.setState({user});
   }
 
   render() {

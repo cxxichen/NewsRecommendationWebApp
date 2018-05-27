@@ -4,12 +4,7 @@ import { Link } from 'react-router'
 
 import './SignUpForm.css';
 
-const SignUpForm = ({
-  onSubmit,
-  onChange,
-  errors,
-  user,
-}) => (
+const SignUpForm = ({ onSubmit, onChange, errors, user }) => (
   <div className="container">
     <div className="card-panel signup-panel">
       <form className="col s12" action="/" onSubmit={onSubmit}>
@@ -35,11 +30,11 @@ const SignUpForm = ({
             <label htmlFor="confirm_password">Conform Password</label>
           </div>
         </div>
-        <div className="row right-align">
-          <input type="submit" className="waves-effect waves-light btn indigo lighten-1" value='Sign Up'/>
+        <div className="row">
+          <input type="submit" className="col s12 waves-effect waves-light btn indigo lighten-1" value='Sign Up'/>
         </div>
         <div className="row">
-          <p className="right-align"> Already have an account? <Link to="/login">Login</Link></p>
+          <p className="center-align"> Already have an account? <Link to="/login">Login</Link></p>
         </div>
       </form>
     </div>

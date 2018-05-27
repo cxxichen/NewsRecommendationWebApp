@@ -4,12 +4,7 @@ import { Link } from 'react-router';
 
 import './LoginForm.css';
 
-const LoginForm = ({
-  onSubmit,
-  onChange,
-  errors,
-  user,
-}) => (
+const LoginForm = ({ onSubmit, onChange,errors, user }) => (
   <div className="container">
     <div className="card-panel login-panel">
       <form className="col s12" action="/" onSubmit={onSubmit}>
@@ -29,11 +24,11 @@ const LoginForm = ({
           </div>
         </div>
         {errors.password && <div className="row"><p className="error-message">{errors.password}</p></div>}
-        <div className="row right-align">
-          <input type="submit" className="waves-effect waves-light btn indigo lighten-1" value='Log in'/>
+        <div className="row">
+          <input type="submit" className="col s12 waves-effect waves-light btn indigo lighten-1" value='Log in'/>
         </div>
         <div className="row">
-          <p className="right-align"> New to Tap News?  <Link to="/signup">Sign Up</Link></p>
+          <p className="center-align"> Need a new account?  <Link to="/signup">Sign Up</Link></p>
         </div>
       </form>
     </div>
