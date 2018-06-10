@@ -4,3 +4,8 @@ pika
 requests
 redis
 lxml
+goose-extractor
+sklearn
+numpy
+scipy
+python-dateutil
