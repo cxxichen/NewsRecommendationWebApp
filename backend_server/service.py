@@ -1,13 +1,5 @@
+import operations
 import pyjsonrpc
-import os
-import sys
-import json
-
-from bson.json_util import dumps
-
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'Common'))
-
-import mongodb_client
 
 SERVER_HOST = 'localhost'
 SERVER_PORT = 4040
@@ -19,13 +11,15 @@ class RequestHandler(pyjsonrpc.HttpRequestHandler):
         print "add is called with %d and %d" % (a, b)
         return a + b
 
-    """ Get news """
+    """ Get news summaries for a user """
     @pyjsonrpc.rpcmethod
-    def getNews(self):
-        db = mongodb_client.get_db()
-        news = list(db['news'].find())
-        return json.loads(dumps(news))
+    def getNewsSummariesForUser(self, user_id, page_num):
+        return operations.getNewsSummariesForUser(user_id, page_num)
 
+    # """ Log user news clicks """
+    # @pyjsonrpc.rpcmethod
+    # def logNewsClickForUser(self, user_id, news_id):
+    #     return operations.logNewsClickForUser(user_id, news_id)
 
 # Threading HTTP Server
 http_server = pyjsonrpc.ThreadingHttpServer(

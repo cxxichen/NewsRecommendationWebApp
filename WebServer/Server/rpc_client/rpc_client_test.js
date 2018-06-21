@@ -1,5 +1,5 @@
 var client = require('./rpc_client');
 
-client.add(1, 99, function(response) {
-    console.assert(response == 100);
+client.getNewsSummariesForUser('test_user', 1, function(response) {
+  console.assert(response != null);
 });
