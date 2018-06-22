@@ -14,24 +14,24 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'Common'))
 import mongodb_client
 # import news_recommendation_service_client
 
-# from cloudAMQP_client import CloudAMQPClient
+from cloudAMQP_client import CloudAMQPClient
 
 REDIS_HOST = "localhost"
 REDIS_PORT = 6379
 
 NEWS_TABLE_NAME = "news"
-# CLICK_LOGS_TABLE_NAME = 'click_logs'
+CLICK_LOGS_TABLE_NAME = 'click_logs'
 
 NEWS_LIMIT = 100
 NEWS_LIST_BATCH_SIZE = 10
 USER_NEWS_TIME_OUT_IN_SECONDS = 600
 
 
-# LOG_CLICKS_TASK_QUEUE_URL = "amqp://ymnecqpr:d0WaqHb3x0QYvQKfyj-Fg13a34eyXNOh@emu.rmq.cloudamqp.com/ymnecqpr"
-# LOG_CLICKS_TASK_QUEUE_NAME = "tap-news-log-clicks-task-queue"
+LOG_CLICKS_TASK_QUEUE_URL = "amqp://ymnecqpr:d0WaqHb3x0QYvQKfyj-Fg13a34eyXNOh@emu.rmq.cloudamqp.com/ymnecqpr"
+LOG_CLICKS_TASK_QUEUE_NAME = "tap-news-log-clicks-task-queue"
 
 redis_client = redis.StrictRedis(REDIS_HOST, REDIS_PORT, db=0)
-# cloudAMQP_client = CloudAMQPClient(LOG_CLICKS_TASK_QUEUE_URL, LOG_CLICKS_TASK_QUEUE_NAME)
+cloudAMQP_client = CloudAMQPClient(LOG_CLICKS_TASK_QUEUE_URL, LOG_CLICKS_TASK_QUEUE_NAME)
 
 def getNewsSummariesForUser(user_id, page_num):
     page_num = int(page_num)

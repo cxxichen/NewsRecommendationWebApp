@@ -8,15 +8,15 @@ from sets import Set
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'Common'))
 
 import mongodb_client
-# from cloudAMQP_client import CloudAMQPClient
+from cloudAMQP_client import CloudAMQPClient
 
 
-# LOG_CLICKS_TASK_QUEUE_URL = "amqp://ymnecqpr:d0WaqHb3x0QYvQKfyj-Fg13a34eyXNOh@emu.rmq.cloudamqp.com/ymnecqpr"
-# LOG_CLICKS_TASK_QUEUE_NAME = "tap-news-log-clicks-task-queue"
+LOG_CLICKS_TASK_QUEUE_URL = "amqp://ymnecqpr:d0WaqHb3x0QYvQKfyj-Fg13a34eyXNOh@emu.rmq.cloudamqp.com/ymnecqpr"
+LOG_CLICKS_TASK_QUEUE_NAME = "tap-news-log-clicks-task-queue"
 
-# CLICK_LOGS_TABLE_NAME = 'click_logs'
+CLICK_LOGS_TABLE_NAME = 'click_logs'
 
-# cloudAMQP_client = CloudAMQPClient(LOG_CLICKS_TASK_QUEUE_URL, LOG_CLICKS_TASK_QUEUE_NAME)
+cloudAMQP_client = CloudAMQPClient(LOG_CLICKS_TASK_QUEUE_URL, LOG_CLICKS_TASK_QUEUE_NAME)
 
 # Start Redis and MongoDB before running following tests.
 
@@ -70,4 +70,4 @@ def test_logNewsClickForUser_basic():
 if __name__ == "__main__":
     test_getNewsSummariesForUser_basic()
     test_getNewsSummariesForUser_pagination()
-    # test_logNewsClickForUser_basic()
+    test_logNewsClickForUser_basic()
