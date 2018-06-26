@@ -9,3 +9,8 @@ sklearn
 numpy
 scipy
 python-dateutil
+pandas
+numpy
+tensorflow
+sklearn
+watchdog
